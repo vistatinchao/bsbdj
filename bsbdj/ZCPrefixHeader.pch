@@ -18,6 +18,9 @@
 
 #import "UIView+Extension.h"
 #import "UIBarButtonItem+Extension.h"
+#import <AFNetworking.h>
+#import <UIImageView+WebCache.h>
+
 
 #define ZCLogFunc ZCLog(@"%s", __func__)
 

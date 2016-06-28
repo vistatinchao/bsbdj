@@ -7,7 +7,8 @@
 //
 
 #import "ZCFriendTrendsViewController.h"
-
+#import "ZCRecommendViewController.h"
+#import <AFNetworking.h>
 @interface ZCFriendTrendsViewController ()
 
 @end
@@ -17,7 +18,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     // 设置导航栏标题
     self.navigationItem.title = @"我的关注";
 
@@ -30,7 +30,8 @@
 
 - (void)friendsClick
 {
-   
+    ZCRecommendViewController *rvc = [[ZCRecommendViewController alloc]init];
+    [self.navigationController pushViewController:rvc animated:YES];
 }
 
 

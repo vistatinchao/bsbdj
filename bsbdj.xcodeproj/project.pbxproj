@@ -22,6 +22,10 @@
 		0452661B1D21149D00289DDA /* ZCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452661A1D21149D00289DDA /* ZCTabBar.m */; };
 		0452661E1D21202B00289DDA /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452661D1D21202B00289DDA /* UIView+Extension.m */; };
 		045266211D21261400289DDA /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 045266201D21261400289DDA /* UIBarButtonItem+Extension.m */; };
+		04F96E9A1D2258AD0088CA7B /* ZCRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F96E981D2258AD0088CA7B /* ZCRecommendViewController.m */; };
+		04F96E9B1D2258AD0088CA7B /* ZCRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F96E991D2258AD0088CA7B /* ZCRecommendViewController.xib */; };
+		04F96E9D1D225E8D0088CA7B /* ZCFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F96E9C1D225E8D0088CA7B /* ZCFriendTrendsViewController.xib */; };
+		43C156370CD98398021A63CF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1838703ED13F409E8EA485F5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,13 @@
 		0452661D1D21202B00289DDA /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		0452661F1D21261400289DDA /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		045266201D21261400289DDA /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		04F96E971D2258AD0088CA7B /* ZCRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendViewController.h; sourceTree = "<group>"; };
+		04F96E981D2258AD0088CA7B /* ZCRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendViewController.m; sourceTree = "<group>"; };
+		04F96E991D2258AD0088CA7B /* ZCRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCRecommendViewController.xib; sourceTree = "<group>"; };
+		04F96E9C1D225E8D0088CA7B /* ZCFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCFriendTrendsViewController.xib; sourceTree = "<group>"; };
+		1838703ED13F409E8EA485F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1867C70C7DBD3D2ED813BEAA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A3DA23438B3A42D8CD021C65 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43C156370CD98398021A63CF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +119,8 @@
 				045265CD1D20F95200289DDA /* bsbdjTests */,
 				045265D81D20F95200289DDA /* bsbdjUITests */,
 				045265B21D20F95100289DDA /* Products */,
+				3EA63F8BBD094C8254258A87 /* Pods */,
+				FF69981576557474BE1CA75D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,6 +199,10 @@
 			children = (
 				045266131D210A1B00289DDA /* ZCFriendTrendsViewController.h */,
 				045266141D210A1B00289DDA /* ZCFriendTrendsViewController.m */,
+				04F96E9C1D225E8D0088CA7B /* ZCFriendTrendsViewController.xib */,
+				04F96E971D2258AD0088CA7B /* ZCRecommendViewController.h */,
+				04F96E981D2258AD0088CA7B /* ZCRecommendViewController.m */,
+				04F96E991D2258AD0088CA7B /* ZCRecommendViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -345,6 +363,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3EA63F8BBD094C8254258A87 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3DA23438B3A42D8CD021C65 /* Pods.debug.xcconfig */,
+				1867C70C7DBD3D2ED813BEAA /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FF69981576557474BE1CA75D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1838703ED13F409E8EA485F5 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -352,9 +387,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 045265DE1D20F95200289DDA /* Build configuration list for PBXNativeTarget "bsbdj" */;
 			buildPhases = (
+				602E7A910EA2CE847C962BAA /* Check Pods Manifest.lock */,
 				045265AD1D20F95100289DDA /* Sources */,
 				045265AE1D20F95100289DDA /* Frameworks */,
 				045265AF1D20F95100289DDA /* Resources */,
+				F4CFAF542300BE82A17C49BB /* Embed Pods Frameworks */,
+				E9A37703E43CE51567A8EDCB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -448,7 +486,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F96E9B1D2258AD0088CA7B /* ZCRecommendViewController.xib in Resources */,
 				045265C11D20F95100289DDA /* Assets.xcassets in Resources */,
+				04F96E9D1D225E8D0088CA7B /* ZCFriendTrendsViewController.xib in Resources */,
 				045266031D20FE0500289DDA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,11 +509,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		602E7A910EA2CE847C962BAA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E9A37703E43CE51567A8EDCB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4CFAF542300BE82A17C49BB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		045265AD1D20F95100289DDA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F96E9A1D2258AD0088CA7B /* ZCRecommendViewController.m in Sources */,
 				0452661E1D21202B00289DDA /* UIView+Extension.m in Sources */,
 				0452661B1D21149D00289DDA /* ZCTabBar.m in Sources */,
 				045266081D21038C00289DDA /* ZCCustomerTabBarController.m in Sources */,
@@ -606,6 +695,7 @@
 		};
 		045265DF1D20F95200289DDA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3DA23438B3A42D8CD021C65 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -619,6 +709,7 @@
 		};
 		045265E01D20F95200289DDA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1867C70C7DBD3D2ED813BEAA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -697,6 +788,7 @@
 				045265E01D20F95200289DDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		045265E11D20F95200289DDA /* Build configuration list for PBXNativeTarget "bsbdjTests" */ = {
 			isa = XCConfigurationList;
@@ -705,6 +797,7 @@
 				045265E31D20F95200289DDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		045265E41D20F95200289DDA /* Build configuration list for PBXNativeTarget "bsbdjUITests" */ = {
 			isa = XCConfigurationList;
@@ -713,6 +806,7 @@
 				045265E61D20F95200289DDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
