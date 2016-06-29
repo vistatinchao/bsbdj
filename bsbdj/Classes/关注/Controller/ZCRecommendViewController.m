@@ -7,19 +7,195 @@
 //
 
 #import "ZCRecommendViewController.h"
-
-@interface ZCRecommendViewController ()
+#import "ZCRecommendUserCell.h"
+#import "ZCRecommendCategoryCell.h"
+#import "ZCRecommendCategory.h"
+#import "ZCRecommendUser.h"
+@interface ZCRecommendViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
+@property (weak, nonatomic) IBOutlet UITableView *userTableView;
+@property (nonatomic,strong) NSArray *categories;
+@property (nonatomic,strong) NSMutableDictionary *params;
+@property (nonatomic,strong) AFHTTPSessionManager *mannger;
 
 @end
 
 @implementation ZCRecommendViewController
+static NSString * const ZCCategoryId = @"category";
+static NSString * const ZCUserId = @"user";
 
+-(AFHTTPSessionManager *)mannger
+{
+    if (!_mannger)
+    {
+        _mannger = [AFHTTPSessionManager manager];
+    }
+    return _mannger;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
-    // Do any additional setup after loading the view from its nib.
+    [self setTableView];
+    [self loadCategories];
+    [self setupRefresh];
 }
 
+- (void)loadCategories
+{
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"category";
+    params[@"c"] = @"subscribe";
+    [self.mannger GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil
+              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                  [SVProgressHUD dismiss];
+                  ZCLog(@"%@",responseObject);
 
+                  self.categories = [ZCRecommendCategory objectArrayWithKeyValuesArray:responseObject[@"list"] error:nil];
+                  [self.categoryTableView reloadData];
+                  [self.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                  [SVProgressHUD showErrorWithStatus:@"加載失敗"];
+              }];
+}
+- (void)setTableView
+{
+    [self.categoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZCRecommendCategoryCell class]) bundle:nil] forCellReuseIdentifier:ZCCategoryId];
+    [self.userTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZCRecommendUserCell class]) bundle:nil] forCellReuseIdentifier:ZCUserId];
+    self.title = @"推薦關注";
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.userTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.categoryTableView.contentInset = self.userTableView.contentInset;
+    self.userTableView.rowHeight = 70;
+    self.view.backgroundColor = ZCGlobalBg;
+}
+
+- (void)setupRefresh
+{
+    self.userTableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewUsers)];
+    self.userTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
+}
+
+- (void)loadMoreUsers
+{
+    NSInteger index = self.categoryTableView.indexPathForSelectedRow.row;
+    ZCRecommendCategory *rc = self.categories[index];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    params[@"category_id"] = @(rc.ID);
+    params[@"page"] = @(++rc.currentPage);
+    self.params = params;
+    [self.mannger GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSArray *users = [ZCRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [rc.users addObjectsFromArray:users];
+        if (self.params!=params)
+        {
+            return;
+        }
+        [self.userTableView reloadData];
+        [self chectFooterState];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (self.params!=params)
+        {
+            return;
+        }
+        [SVProgressHUD showErrorWithStatus:@"加載失敗"];
+        [self.userTableView.footer endRefreshing];
+    }];
+}
+
+- (void)loadNewUsers
+{
+    NSInteger index = self.categoryTableView.indexPathForSelectedRow.row;
+    ZCRecommendCategory *rc = self.categories[index];
+    rc.currentPage = 1;
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    params[@"category_id"] = @(rc.ID);
+    params[@"page"] = @(rc.currentPage);
+    self.params = params;
+
+    [self.mannger GET:@"http://api.budejie.com/api/api_open.php" parameters:self.params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSArray *users = [ZCRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [rc.users removeAllObjects];
+        [rc.users addObjectsFromArray:users];
+        rc.total = [responseObject[@"total"] integerValue];
+        // 不是最后一次请求
+        if (self.params != params) return;
+        [self.userTableView reloadData];
+        [self.userTableView.header endRefreshing];
+        [self chectFooterState];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (self.params!=params)
+        {
+            return ;
+        }
+        [self.userTableView.header endRefreshing];
+    }];
+}
+- (void)chectFooterState
+{
+    NSInteger index= self.categoryTableView.indexPathForSelectedRow.row;
+    ZCRecommendCategory *rc = self.categories[index];
+    if (rc.users.count==rc.total)
+    {
+        [self.userTableView.footer noticeNoMoreData];
+    }
+    else
+    {
+        [self.userTableView.footer endRefreshing];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView==self.categoryTableView)
+    {
+        return self.categories.count;
+    }
+    NSInteger index = self.categoryTableView.indexPathForSelectedRow.row;
+    return [self.categories[index] users].count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView==self.categoryTableView)
+    {
+        ZCRecommendCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:ZCCategoryId];
+        cell.category = self.categories[indexPath.row];
+        return cell;
+    }
+    else
+    {
+        ZCRecommendUserCell *cell = [tableView dequeueReusableCellWithIdentifier:ZCUserId];
+        NSInteger index = self.categoryTableView.indexPathForSelectedRow.row;
+        cell.user =[self.categories[index] users][indexPath.row];
+        return cell;
+    }
+
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.userTableView.header endRefreshing];
+    [self.userTableView.footer endRefreshing];
+    if (tableView==self.categoryTableView)
+    {
+        [self.userTableView reloadData];
+        ZCRecommendCategory *c = self.categories[indexPath.row];
+        if (c.users.count)
+        {
+            [self.userTableView reloadData];
+        }
+        else
+        {
+            [self.userTableView reloadData];
+            [self.userTableView.header beginRefreshing];
+        }
+
+
+    }
+}
 
 @end

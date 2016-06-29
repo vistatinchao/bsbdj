@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0402C7821D23B28800785417 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402C7811D23B28800785417 /* Foundation+Log.m */; };
+		0402C7861D23B5BD00785417 /* ZCRecommendCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402C7841D23B5BD00785417 /* ZCRecommendCategoryCell.m */; };
+		0402C7871D23B5BD00785417 /* ZCRecommendCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0402C7851D23B5BD00785417 /* ZCRecommendCategoryCell.xib */; };
+		0402C78B1D23B5E000785417 /* ZCRecommendUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402C7891D23B5E000785417 /* ZCRecommendUserCell.m */; };
+		0402C78C1D23B5E000785417 /* ZCRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0402C78A1D23B5E000785417 /* ZCRecommendUserCell.xib */; };
+		0402C78F1D23B60E00785417 /* ZCRecommendCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402C78E1D23B60E00785417 /* ZCRecommendCategory.m */; };
+		0402C7921D23B61D00785417 /* ZCRecommendUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402C7911D23B61D00785417 /* ZCRecommendUser.m */; };
 		045265C11D20F95100289DDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045265C01D20F95100289DDA /* Assets.xcassets */; };
 		045265CF1D20F95200289DDA /* bsbdjTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 045265CE1D20F95200289DDA /* bsbdjTests.m */; };
 		045265DA1D20F95200289DDA /* bsbdjUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 045265D91D20F95200289DDA /* bsbdjUITests.m */; };
@@ -46,6 +53,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0402C7811D23B28800785417 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		0402C7831D23B5BD00785417 /* ZCRecommendCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendCategoryCell.h; sourceTree = "<group>"; };
+		0402C7841D23B5BD00785417 /* ZCRecommendCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendCategoryCell.m; sourceTree = "<group>"; };
+		0402C7851D23B5BD00785417 /* ZCRecommendCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCRecommendCategoryCell.xib; sourceTree = "<group>"; };
+		0402C7881D23B5E000785417 /* ZCRecommendUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendUserCell.h; sourceTree = "<group>"; };
+		0402C7891D23B5E000785417 /* ZCRecommendUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendUserCell.m; sourceTree = "<group>"; };
+		0402C78A1D23B5E000785417 /* ZCRecommendUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCRecommendUserCell.xib; sourceTree = "<group>"; };
+		0402C78D1D23B60E00785417 /* ZCRecommendCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendCategory.h; sourceTree = "<group>"; };
+		0402C78E1D23B60E00785417 /* ZCRecommendCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendCategory.m; sourceTree = "<group>"; };
+		0402C7901D23B61D00785417 /* ZCRecommendUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendUser.h; sourceTree = "<group>"; };
+		0402C7911D23B61D00785417 /* ZCRecommendUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendUser.m; sourceTree = "<group>"; };
 		045265B11D20F95100289DDA /* bsbdj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bsbdj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045265C01D20F95100289DDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		045265CA1D20F95200289DDA /* bsbdjTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bsbdjTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +228,10 @@
 		045265EA1D20FE0500289DDA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0402C78D1D23B60E00785417 /* ZCRecommendCategory.h */,
+				0402C78E1D23B60E00785417 /* ZCRecommendCategory.m */,
+				0402C7901D23B61D00785417 /* ZCRecommendUser.h */,
+				0402C7911D23B61D00785417 /* ZCRecommendUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,6 +239,12 @@
 		045265EB1D20FE0500289DDA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0402C7831D23B5BD00785417 /* ZCRecommendCategoryCell.h */,
+				0402C7841D23B5BD00785417 /* ZCRecommendCategoryCell.m */,
+				0402C7851D23B5BD00785417 /* ZCRecommendCategoryCell.xib */,
+				0402C7881D23B5E000785417 /* ZCRecommendUserCell.h */,
+				0402C7891D23B5E000785417 /* ZCRecommendUserCell.m */,
+				0402C78A1D23B5E000785417 /* ZCRecommendUserCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -236,6 +264,7 @@
 		045265EF1D20FE0500289DDA /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				0402C7811D23B28800785417 /* Foundation+Log.m */,
 				0452661C1D21202B00289DDA /* UIView+Extension.h */,
 				0452661D1D21202B00289DDA /* UIView+Extension.m */,
 				0452661F1D21261400289DDA /* UIBarButtonItem+Extension.h */,
@@ -489,6 +518,8 @@
 				04F96E9B1D2258AD0088CA7B /* ZCRecommendViewController.xib in Resources */,
 				045265C11D20F95100289DDA /* Assets.xcassets in Resources */,
 				04F96E9D1D225E8D0088CA7B /* ZCFriendTrendsViewController.xib in Resources */,
+				0402C7871D23B5BD00785417 /* ZCRecommendCategoryCell.xib in Resources */,
+				0402C78C1D23B5E000785417 /* ZCRecommendUserCell.xib in Resources */,
 				045266031D20FE0500289DDA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,15 +594,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F96E9A1D2258AD0088CA7B /* ZCRecommendViewController.m in Sources */,
+				0402C7861D23B5BD00785417 /* ZCRecommendCategoryCell.m in Sources */,
 				0452661E1D21202B00289DDA /* UIView+Extension.m in Sources */,
 				0452661B1D21149D00289DDA /* ZCTabBar.m in Sources */,
 				045266081D21038C00289DDA /* ZCCustomerTabBarController.m in Sources */,
+				0402C7921D23B61D00785417 /* ZCRecommendUser.m in Sources */,
+				0402C78F1D23B60E00785417 /* ZCRecommendCategory.m in Sources */,
 				045266021D20FE0500289DDA /* AppDelegate.m in Sources */,
 				0452660C1D21098D00289DDA /* ZCEssenceViewController.m in Sources */,
 				045266181D210A4800289DDA /* ZCCustomeNavigationController.m in Sources */,
 				045266211D21261400289DDA /* UIBarButtonItem+Extension.m in Sources */,
 				0452660F1D2109B500289DDA /* ZCNewViewController.m in Sources */,
 				045266151D210A1B00289DDA /* ZCFriendTrendsViewController.m in Sources */,
+				0402C7821D23B28800785417 /* Foundation+Log.m in Sources */,
+				0402C78B1D23B5E000785417 /* ZCRecommendUserCell.m in Sources */,
 				045266041D20FE0500289DDA /* main.m in Sources */,
 				045266121D2109C800289DDA /* ZCMeViewController.m in Sources */,
 			);
