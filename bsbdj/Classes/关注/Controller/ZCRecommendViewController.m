@@ -11,6 +11,8 @@
 #import "ZCRecommendCategoryCell.h"
 #import "ZCRecommendCategory.h"
 #import "ZCRecommendUser.h"
+#define ZCSelectedCategory self.categories[self.categoryTableView.indexPathForSelectedRow.row]
+
 @interface ZCRecommendViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
 @property (weak, nonatomic) IBOutlet UITableView *userTableView;
@@ -53,6 +55,7 @@ static NSString * const ZCUserId = @"user";
                   self.categories = [ZCRecommendCategory objectArrayWithKeyValuesArray:responseObject[@"list"] error:nil];
                   [self.categoryTableView reloadData];
                   [self.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+                  [self.userTableView.header beginRefreshing];
               } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                   [SVProgressHUD showErrorWithStatus:@"加載失敗"];
               }];
@@ -77,8 +80,7 @@ static NSString * const ZCUserId = @"user";
 
 - (void)loadMoreUsers
 {
-    NSInteger index = self.categoryTableView.indexPathForSelectedRow.row;
-    ZCRecommendCategory *rc = self.categories[index];
+    ZCRecommendCategory *rc = ZCSelectedCategory;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"subscribe";
@@ -88,12 +90,13 @@ static NSString * const ZCUserId = @"user";
     [self.mannger GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSArray *users = [ZCRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
         [rc.users addObjectsFromArray:users];
-        if (self.params!=params)
-        {
-            return;
-        }
+
+        if (self.params!=params)return;
+
         [self.userTableView reloadData];
+
         [self chectFooterState];
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (self.params!=params)
         {
@@ -106,8 +109,7 @@ static NSString * const ZCUserId = @"user";
 
 - (void)loadNewUsers
 {
-    NSInteger index = self.categoryTableView.indexPathForSelectedRow.row;
-    ZCRecommendCategory *rc = self.categories[index];
+    ZCRecommendCategory *rc = ZCSelectedCategory;
     rc.currentPage = 1;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
@@ -131,13 +133,14 @@ static NSString * const ZCUserId = @"user";
         {
             return ;
         }
+        [SVProgressHUD showErrorWithStatus:@"加载失败"];
         [self.userTableView.header endRefreshing];
     }];
 }
 - (void)chectFooterState
 {
-    NSInteger index= self.categoryTableView.indexPathForSelectedRow.row;
-    ZCRecommendCategory *rc = self.categories[index];
+    ZCRecommendCategory *rc = ZCSelectedCategory;
+    self.userTableView.footer.hidden = (rc.users.count==0);
     if (rc.users.count==rc.total)
     {
         [self.userTableView.footer noticeNoMoreData];
@@ -154,8 +157,9 @@ static NSString * const ZCUserId = @"user";
     {
         return self.categories.count;
     }
-    NSInteger index = self.categoryTableView.indexPathForSelectedRow.row;
-    return [self.categories[index] users].count;
+    [self chectFooterState];
+    ZCRecommendCategory *rc = ZCSelectedCategory;
+    return rc.users.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -169,8 +173,8 @@ static NSString * const ZCUserId = @"user";
     else
     {
         ZCRecommendUserCell *cell = [tableView dequeueReusableCellWithIdentifier:ZCUserId];
-        NSInteger index = self.categoryTableView.indexPathForSelectedRow.row;
-        cell.user =[self.categories[index] users][indexPath.row];
+        ZCRecommendCategory *rc = ZCSelectedCategory;
+        cell.user = rc.users[indexPath.row];
         return cell;
     }
 
@@ -196,6 +200,11 @@ static NSString * const ZCUserId = @"user";
 
 
     }
+}
+
+- (void)dealloc
+{
+    [self.mannger.operationQueue cancelAllOperations];
 }
 
 @end
