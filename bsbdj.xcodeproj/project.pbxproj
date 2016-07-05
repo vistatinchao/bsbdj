@@ -14,6 +14,10 @@
 		0402C78C1D23B5E000785417 /* ZCRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0402C78A1D23B5E000785417 /* ZCRecommendUserCell.xib */; };
 		0402C78F1D23B60E00785417 /* ZCRecommendCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402C78E1D23B60E00785417 /* ZCRecommendCategory.m */; };
 		0402C7921D23B61D00785417 /* ZCRecommendUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402C7911D23B61D00785417 /* ZCRecommendUser.m */; };
+		0416B1AA1D2A40CD000A609E /* ZCLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416B1A81D2A40CD000A609E /* ZCLoginRegisterViewController.m */; };
+		0416B1AB1D2A40CD000A609E /* ZCLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0416B1A91D2A40CD000A609E /* ZCLoginRegisterViewController.xib */; };
+		0416B1AE1D2A4DB2000A609E /* ZCVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416B1AD1D2A4DB2000A609E /* ZCVerticalButton.m */; };
+		0416B1B11D2A59E7000A609E /* ZCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416B1B01D2A59E7000A609E /* ZCTextField.m */; };
 		042BD2241D26567F00E40558 /* ZCRecommendTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042BD2231D26567F00E40558 /* ZCRecommendTagsViewController.m */; };
 		042BD2281D2657B500E40558 /* ZCRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042BD2261D2657B500E40558 /* ZCRecommendTagCell.m */; };
 		042BD2291D2657B500E40558 /* ZCRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042BD2271D2657B500E40558 /* ZCRecommendTagCell.xib */; };
@@ -68,6 +72,13 @@
 		0402C78E1D23B60E00785417 /* ZCRecommendCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendCategory.m; sourceTree = "<group>"; };
 		0402C7901D23B61D00785417 /* ZCRecommendUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendUser.h; sourceTree = "<group>"; };
 		0402C7911D23B61D00785417 /* ZCRecommendUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendUser.m; sourceTree = "<group>"; };
+		0416B1A71D2A40CD000A609E /* ZCLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCLoginRegisterViewController.h; sourceTree = "<group>"; };
+		0416B1A81D2A40CD000A609E /* ZCLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCLoginRegisterViewController.m; sourceTree = "<group>"; };
+		0416B1A91D2A40CD000A609E /* ZCLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCLoginRegisterViewController.xib; sourceTree = "<group>"; };
+		0416B1AC1D2A4DB2000A609E /* ZCVerticalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCVerticalButton.h; sourceTree = "<group>"; };
+		0416B1AD1D2A4DB2000A609E /* ZCVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCVerticalButton.m; sourceTree = "<group>"; };
+		0416B1AF1D2A59E7000A609E /* ZCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTextField.h; sourceTree = "<group>"; };
+		0416B1B01D2A59E7000A609E /* ZCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTextField.m; sourceTree = "<group>"; };
 		042BD2221D26567F00E40558 /* ZCRecommendTagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendTagsViewController.h; sourceTree = "<group>"; };
 		042BD2231D26567F00E40558 /* ZCRecommendTagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendTagsViewController.m; sourceTree = "<group>"; };
 		042BD2251D2657B500E40558 /* ZCRecommendTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendTagCell.h; sourceTree = "<group>"; };
@@ -232,6 +243,9 @@
 				04F96E971D2258AD0088CA7B /* ZCRecommendViewController.h */,
 				04F96E981D2258AD0088CA7B /* ZCRecommendViewController.m */,
 				04F96E991D2258AD0088CA7B /* ZCRecommendViewController.xib */,
+				0416B1A71D2A40CD000A609E /* ZCLoginRegisterViewController.h */,
+				0416B1A81D2A40CD000A609E /* ZCLoginRegisterViewController.m */,
+				0416B1A91D2A40CD000A609E /* ZCLoginRegisterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -256,6 +270,10 @@
 				0402C7881D23B5E000785417 /* ZCRecommendUserCell.h */,
 				0402C7891D23B5E000785417 /* ZCRecommendUserCell.m */,
 				0402C78A1D23B5E000785417 /* ZCRecommendUserCell.xib */,
+				0416B1AC1D2A4DB2000A609E /* ZCVerticalButton.h */,
+				0416B1AD1D2A4DB2000A609E /* ZCVerticalButton.m */,
+				0416B1AF1D2A59E7000A609E /* ZCTextField.h */,
+				0416B1B01D2A59E7000A609E /* ZCTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -537,6 +555,7 @@
 				045265C11D20F95100289DDA /* Assets.xcassets in Resources */,
 				042BD2291D2657B500E40558 /* ZCRecommendTagCell.xib in Resources */,
 				04F96E9D1D225E8D0088CA7B /* ZCFriendTrendsViewController.xib in Resources */,
+				0416B1AB1D2A40CD000A609E /* ZCLoginRegisterViewController.xib in Resources */,
 				0402C7871D23B5BD00785417 /* ZCRecommendCategoryCell.xib in Resources */,
 				0402C78C1D23B5E000785417 /* ZCRecommendUserCell.xib in Resources */,
 				045266031D20FE0500289DDA /* Info.plist in Resources */,
@@ -612,6 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0416B1B11D2A59E7000A609E /* ZCTextField.m in Sources */,
 				04F96E9A1D2258AD0088CA7B /* ZCRecommendViewController.m in Sources */,
 				0402C7861D23B5BD00785417 /* ZCRecommendCategoryCell.m in Sources */,
 				0452661E1D21202B00289DDA /* UIView+Extension.m in Sources */,
@@ -627,8 +647,10 @@
 				042BD2241D26567F00E40558 /* ZCRecommendTagsViewController.m in Sources */,
 				0452660F1D2109B500289DDA /* ZCNewViewController.m in Sources */,
 				042BD22C1D2657E100E40558 /* ZCRecommendTag.m in Sources */,
+				0416B1AA1D2A40CD000A609E /* ZCLoginRegisterViewController.m in Sources */,
 				045266151D210A1B00289DDA /* ZCFriendTrendsViewController.m in Sources */,
 				0402C7821D23B28800785417 /* Foundation+Log.m in Sources */,
+				0416B1AE1D2A4DB2000A609E /* ZCVerticalButton.m in Sources */,
 				0402C78B1D23B5E000785417 /* ZCRecommendUserCell.m in Sources */,
 				045266041D20FE0500289DDA /* main.m in Sources */,
 				045266121D2109C800289DDA /* ZCMeViewController.m in Sources */,

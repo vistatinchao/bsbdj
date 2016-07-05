@@ -8,7 +8,7 @@
 
 #import "ZCFriendTrendsViewController.h"
 #import "ZCRecommendViewController.h"
-#import <AFNetworking.h>
+#import "ZCLoginRegisterViewController.h"
 @interface ZCFriendTrendsViewController ()
 
 @end
@@ -34,5 +34,10 @@
     [self.navigationController pushViewController:rvc animated:YES];
 }
 
+- (IBAction)loginRegister
+{
+    ZCLoginRegisterViewController *gvc = [[ZCLoginRegisterViewController alloc]init];
+    [self presentViewController:gvc animated:YES completion:nil];
+}
 
 @end
