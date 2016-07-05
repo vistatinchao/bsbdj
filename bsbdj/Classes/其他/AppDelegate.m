@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ZCCustomerTabBarController.h"
+#import "ZCPublishGuideView.h"
 @interface AppDelegate ()
 
 @end
@@ -20,6 +21,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[ZCCustomerTabBarController alloc]init];
     [self.window makeKeyAndVisible];
+    [ZCPublishGuideView show];
     
     // Override point for customization after application launch.
     return YES;

@@ -7,7 +7,7 @@
 //
 
 #import "ZCNewViewController.h"
-#import "ZCRecommendTagsViewController.h"
+
 @interface ZCNewViewController ()
 
 @end
@@ -30,8 +30,7 @@
 
 - (void)tagClick
 {
-    ZCRecommendTagsViewController *rvc = [[ZCRecommendTagsViewController alloc]init];
-    [self.navigationController pushViewController:rvc animated:YES];
+   
 }
 
 @end
