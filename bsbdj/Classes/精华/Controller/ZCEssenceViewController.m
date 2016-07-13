@@ -8,11 +8,7 @@
 
 #import "ZCEssenceViewController.h"
 #import "ZCRecommendTagsViewController.h"
-#import "ZCAllViewController.h"
-#import "ZCVideoViewController.h"
-#import "ZCVoiceViewController.h"
-#import "ZCPictureViewController.h"
-#import "ZCWordViewController.h"
+#import "ZCTopicViewController.h"
 @interface ZCEssenceViewController ()<UIScrollViewDelegate>
 @property (nonatomic,weak) UIView *indicatorView;
 @property (nonatomic,weak) UIButton *selectedButton;
@@ -70,10 +66,9 @@
     self.indicatorView = indicatorView;
 
     // 内部的子标签
-    NSArray *titles = @[@"全部",@"视频",@"声音",@"图片",@"段子"];
-    CGFloat width = titlesView.width/titles.count;
+    CGFloat width = titlesView.width/self.childViewControllers.count;
     CGFloat height = titlesView.height;
-    for (NSInteger i=0; i<titles.count; i++)
+    for (NSInteger i=0; i<self.childViewControllers.count; i++)
     {
         UIButton *button = [[UIButton alloc]init];
         [titlesView addSubview:button];
@@ -81,7 +76,8 @@
         button.height = height;
         button.width = width;
         button.x = i*width;
-        [button setTitle:titles[i] forState:UIControlStateNormal];
+        UIViewController *vc = self.childViewControllers[i];
+        [button setTitle:vc.title forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
         button.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -117,20 +113,30 @@
 
 - (void)setupchildVces
 {
-    ZCAllViewController *all = [[ZCAllViewController alloc]init];
+    ZCTopicViewController *word = [[ZCTopicViewController alloc]init];
+    word.title = @"段子";
+    word.type = ZCTopicTypeWord;
+    [self addChildViewController:word];
+
+    ZCTopicViewController *all = [[ZCTopicViewController alloc]init];
+    all.title = @"全部";
+    all.type = ZCTopicTypeAll;
     [self addChildViewController:all];
 
-    ZCVideoViewController *video = [[ZCVideoViewController alloc]init];
-    [self addChildViewController:video];
-
-    ZCVoiceViewController *voice = [[ZCVoiceViewController alloc]init];
-    [self addChildViewController:voice];
-
-    ZCPictureViewController *picture = [[ZCPictureViewController alloc]init];
+    ZCTopicViewController *picture = [[ZCTopicViewController alloc]init];
+    picture.title = @"图片";
+    picture.type = ZCTopicTypePicture;
     [self addChildViewController:picture];
 
-    ZCWordViewController *word = [[ZCWordViewController alloc]init];
-    [self addChildViewController:word];
+    ZCTopicViewController *video = [[ZCTopicViewController alloc]init];
+    video.title = @"视频";
+    video.type = ZCTopicTypeVideo;
+    [self addChildViewController:video];
+
+    ZCTopicViewController *voice = [[ZCTopicViewController alloc]init];
+    voice.title = @"声音";
+    voice.type = ZCTopicTypeVoice;
+    [self addChildViewController:voice];
 }
 
 
@@ -140,6 +146,8 @@
     self.navigationItem.titleView = imageView;
 
     self.navigationItem.leftBarButtonItem  = [UIBarButtonItem itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick" target:self action:@selector(tagClick)];
+
+    self.view.backgroundColor = ZCGlobalBg;
 }
 
 
@@ -148,15 +156,11 @@
     // 当前索引
     NSInteger index = scrollView.contentOffset.x/self.view.width;
     // 取出自控制器
-    UITableViewController *vc = self.childViewControllers[index];
+    UIViewController *vc = self.childViewControllers[index];
     vc.view.x = index*scrollView.width;
     vc.view.y = 0;
     vc.view.height = scrollView.height;
-    // 设置内边距
-    CGFloat bottom = self.tabBarController.tabBar.height;
-    CGFloat top = CGRectGetMaxY(self.titlesView.frame);
-    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
-    vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
+    
     [scrollView addSubview:vc.view];
 
 }
