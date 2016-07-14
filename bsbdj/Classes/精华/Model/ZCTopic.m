@@ -61,11 +61,12 @@
 {
     if (!_cellHight) {
         CGSize maxSize = CGSizeMake(ZCScreenW-4*ZCTopicCellMargin, CGFLOAT_MAX);
-        CGFloat textH = [self.text boundingRectWithSize:maxSize options:0 attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height;
+        CGFloat textH = [self.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height;
         _cellHight = ZCTopicCellTextY+textH+ZCTopicCellMargin;
         if (self.type==ZCTopicTypePicture) {
             CGFloat pictureW = maxSize.width;
             CGFloat pictureH = pictureW*self.height/self.width;
+            
             if (pictureH>=ZCTopicCellPictureMaxH) {
                 pictureH = ZCTopicCellPictureBreakH;
                 self.bigPicture = YES;
@@ -80,9 +81,8 @@
         {
             
         }
-
+        _cellHight = _cellHight+ZCTopicCellBottomBarH+ZCTopicCellMargin;
     }
-    _cellHight = _cellHight+ZCTopicCellBottomBarH+ZCTopicCellMargin;
     return _cellHight;
 }
 @end

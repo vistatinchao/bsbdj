@@ -7,6 +7,7 @@
 //
 
 #import "ZCTabBar.h"
+#import "ZCPublishView.h"
 @interface ZCTabBar()
 @property (nonatomic,weak)UIButton *publishBtn;
 @end
@@ -27,7 +28,13 @@
     [self addSubview:btn];
     [btn setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
     [btn setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+    [btn addTarget:self action:@selector(publishClick) forControlEvents:UIControlEventTouchUpInside];
     self.publishBtn = btn;
+}
+
+- (void)publishClick
+{
+    [ZCPublishView show];
 }
 
 - (void)layoutSubviews

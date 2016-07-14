@@ -10,4 +10,5 @@
 @class ZCTopic;
 @interface ZCTopicPictureView : UIView
 @property (nonatomic,strong)ZCTopic *topic;
++(instancetype)picktureView;
 @end
