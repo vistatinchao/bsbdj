@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftMargin;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *layoutLeftMargin;
+
 
 @end
 
@@ -33,14 +33,14 @@
 - (IBAction)showRigesteLogin:(UIButton *)sender
 {
     [self.view endEditing:YES];
-    if (self.layoutLeftMargin.constant==0)
+    if (self.leftMargin.constant==0)
     {
-        self.layoutLeftMargin.constant = -self.view.width;
+        self.leftMargin.constant = -ZCScreenW;
         sender.selected =YES;
     }
     else
     {
-        self.layoutLeftMargin.constant =0;
+        self.leftMargin.constant =0;
         sender.selected = NO;
     }
     [UIView animateWithDuration:0.25 animations:^{

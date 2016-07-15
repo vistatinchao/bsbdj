@@ -9,7 +9,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZCLoginRegisterViewController">
             <connections>
                 <outlet property="backgroundImageView" destination="HNv-jT-86v" id="VYx-pV-5rp"/>
-                <outlet property="layoutLeftMargin" destination="foE-q2-vmv" id="Y3e-AO-QsS"/>
                 <outlet property="leftMargin" destination="TR9-Yj-hTW" id="y0c-Nv-CpS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -33,15 +32,15 @@
                         <action selector="back" destination="-1" eventType="touchUpInside" id="eeS-rD-lX2"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQu-KY-ORL">
-                    <rect key="frame" x="205" y="40" width="100" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQu-KY-ORL">
+                    <rect key="frame" x="205" y="40" width="100" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="8nO-xV-VJj"/>
                     </constraints>
                     <state key="normal" title="注册账号">
                         <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <state key="selected" title="已有账号">
+                    <state key="selected" title="已有账号?">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -115,7 +114,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNU-lb-L9A" userLabel="登陆框view">
-                    <rect key="frame" x="0.0" y="116" width="320" height="200"/>
+                    <rect key="frame" x="0.0" y="120" width="320" height="200"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeH-pG-8BF" userLabel="文本输入">
                             <rect key="frame" x="27" y="0.0" width="266" height="92"/>
@@ -182,7 +181,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xp3-uk-QGn" userLabel="注册框view">
-                    <rect key="frame" x="320" y="116" width="320" height="200"/>
+                    <rect key="frame" x="320" y="120" width="320" height="200"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mDO-VN-ZJR" userLabel="文本输入">
                             <rect key="frame" x="27" y="0.0" width="266" height="92"/>
@@ -231,7 +230,6 @@
                             </state>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.49648710200000001" green="1" blue="0.46130147849999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="4kX-kH-Oz1" firstAttribute="trailing" secondItem="mDO-VN-ZJR" secondAttribute="trailing" id="MOk-XX-WS9"/>
                         <constraint firstItem="mDO-VN-ZJR" firstAttribute="centerX" secondItem="xp3-uk-QGn" secondAttribute="centerX" id="NDS-7T-bMq"/>
@@ -250,10 +248,10 @@
                 <constraint firstItem="wK4-rw-yCs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WCC-i5-5gN"/>
                 <constraint firstItem="xp3-uk-QGn" firstAttribute="width" secondItem="HNv-jT-86v" secondAttribute="width" id="aVE-8n-eh2"/>
                 <constraint firstItem="xp3-uk-QGn" firstAttribute="top" secondItem="wNU-lb-L9A" secondAttribute="top" id="dJJ-9U-N8a"/>
+                <constraint firstItem="wNU-lb-L9A" firstAttribute="width" secondItem="HNv-jT-86v" secondAttribute="width" id="fAB-ly-JlS"/>
                 <constraint firstItem="HNv-jT-86v" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hLO-Wb-d9j"/>
                 <constraint firstItem="wNU-lb-L9A" firstAttribute="top" secondItem="lQu-KY-ORL" secondAttribute="bottom" constant="46" id="imu-yJ-vDZ"/>
                 <constraint firstItem="HNv-jT-86v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="m8K-vw-Yid"/>
-                <constraint firstAttribute="trailing" secondItem="wNU-lb-L9A" secondAttribute="trailing" id="qzT-F2-hnm"/>
                 <constraint firstAttribute="bottom" secondItem="HNv-jT-86v" secondAttribute="bottom" id="rWJ-XA-O0O"/>
                 <constraint firstAttribute="trailing" secondItem="lQu-KY-ORL" secondAttribute="trailing" constant="15" id="sXB-gf-Jf7"/>
                 <constraint firstItem="1kP-PZ-TdW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="tQE-1u-IEN"/>
