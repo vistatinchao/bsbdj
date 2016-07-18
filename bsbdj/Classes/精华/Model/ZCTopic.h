@@ -18,6 +18,12 @@
 @property (nonatomic,assign)NSInteger repost;
 @property (nonatomic,assign)NSInteger comment;
 @property (nonatomic,assign,getter=isSina_v)BOOL sina_v;
+/** 音频时长 */
+@property (nonatomic, assign) NSInteger voicetime;
+/** 视频时长 */
+@property (nonatomic, assign) NSInteger videotime;
+/** 播放次数 */
+@property (nonatomic, assign) NSInteger playcount;
 /**
  *  图片宽度
  */
@@ -38,6 +44,8 @@
 
 @property (nonatomic,assign,readonly)CGFloat cellHight;
 @property (nonatomic,assign,readonly)CGRect pictureF;
+@property (nonatomic,assign,readonly)CGRect voiceF;
+@property (nonatomic,assign,readonly)CGRect videoF;
 @property (nonatomic,assign,getter=isBigPicture)BOOL bigPicture;
 @property (nonatomic,assign)CGFloat picturePregress;
 @end

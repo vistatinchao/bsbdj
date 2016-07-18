@@ -52,6 +52,10 @@
 		04E5D2561D2E549A0042CB1A /* ZCTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E5D2551D2E549A0042CB1A /* ZCTopicViewController.m */; };
 		04E5D25A1D2E59820042CB1A /* ZCTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E5D2581D2E59820042CB1A /* ZCTopicCell.m */; };
 		04E5D25B1D2E59820042CB1A /* ZCTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E5D2591D2E59820042CB1A /* ZCTopicCell.xib */; };
+		04F3347B1D3CCCB2008ECEB3 /* ZCTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3347A1D3CCCB2008ECEB3 /* ZCTopicVoiceView.m */; };
+		04F3347E1D3CCCC9008ECEB3 /* ZCTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3347D1D3CCCC9008ECEB3 /* ZCTopicVideoView.m */; };
+		04F334801D3CCCDC008ECEB3 /* ZCTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F3347F1D3CCCDC008ECEB3 /* ZCTopicVoiceView.xib */; };
+		04F334821D3CCCF2008ECEB3 /* ZCTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F334811D3CCCF2008ECEB3 /* ZCTopicVideoView.xib */; };
 		04F96E9A1D2258AD0088CA7B /* ZCRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F96E981D2258AD0088CA7B /* ZCRecommendViewController.m */; };
 		04F96E9B1D2258AD0088CA7B /* ZCRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F96E991D2258AD0088CA7B /* ZCRecommendViewController.xib */; };
 		04F96E9D1D225E8D0088CA7B /* ZCFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F96E9C1D225E8D0088CA7B /* ZCFriendTrendsViewController.xib */; };
@@ -157,6 +161,12 @@
 		04E5D2571D2E59820042CB1A /* ZCTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTopicCell.h; sourceTree = "<group>"; };
 		04E5D2581D2E59820042CB1A /* ZCTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTopicCell.m; sourceTree = "<group>"; };
 		04E5D2591D2E59820042CB1A /* ZCTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCTopicCell.xib; sourceTree = "<group>"; };
+		04F334791D3CCCB1008ECEB3 /* ZCTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTopicVoiceView.h; sourceTree = "<group>"; };
+		04F3347A1D3CCCB2008ECEB3 /* ZCTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTopicVoiceView.m; sourceTree = "<group>"; };
+		04F3347C1D3CCCC9008ECEB3 /* ZCTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTopicVideoView.h; sourceTree = "<group>"; };
+		04F3347D1D3CCCC9008ECEB3 /* ZCTopicVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTopicVideoView.m; sourceTree = "<group>"; };
+		04F3347F1D3CCCDC008ECEB3 /* ZCTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCTopicVoiceView.xib; sourceTree = "<group>"; };
+		04F334811D3CCCF2008ECEB3 /* ZCTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCTopicVideoView.xib; sourceTree = "<group>"; };
 		04F96E971D2258AD0088CA7B /* ZCRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendViewController.h; sourceTree = "<group>"; };
 		04F96E981D2258AD0088CA7B /* ZCRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendViewController.m; sourceTree = "<group>"; };
 		04F96E991D2258AD0088CA7B /* ZCRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCRecommendViewController.xib; sourceTree = "<group>"; };
@@ -489,6 +499,12 @@
 				04D9322C1D34EADC00785F46 /* ZCTopicPictureView.xib */,
 				043C19241D364000009B1E74 /* ZCProgressView.h */,
 				043C19251D364000009B1E74 /* ZCProgressView.m */,
+				04F334791D3CCCB1008ECEB3 /* ZCTopicVoiceView.h */,
+				04F3347A1D3CCCB2008ECEB3 /* ZCTopicVoiceView.m */,
+				04F3347F1D3CCCDC008ECEB3 /* ZCTopicVoiceView.xib */,
+				04F3347C1D3CCCC9008ECEB3 /* ZCTopicVideoView.h */,
+				04F3347D1D3CCCC9008ECEB3 /* ZCTopicVideoView.m */,
+				04F334811D3CCCF2008ECEB3 /* ZCTopicVideoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -620,12 +636,14 @@
 				045265C11D20F95100289DDA /* Assets.xcassets in Resources */,
 				04E5D25B1D2E59820042CB1A /* ZCTopicCell.xib in Resources */,
 				042BD2291D2657B500E40558 /* ZCRecommendTagCell.xib in Resources */,
+				04F334821D3CCCF2008ECEB3 /* ZCTopicVideoView.xib in Resources */,
 				04F96E9D1D225E8D0088CA7B /* ZCFriendTrendsViewController.xib in Resources */,
 				043C192B1D3642D5009B1E74 /* ZCShowPictureViewController.xib in Resources */,
 				04D9322D1D34EADC00785F46 /* ZCTopicPictureView.xib in Resources */,
 				0416B1AB1D2A40CD000A609E /* ZCLoginRegisterViewController.xib in Resources */,
 				0474A3E21D2B644A001481F1 /* ZCPublishGuideView.xib in Resources */,
 				0402C7871D23B5BD00785417 /* ZCRecommendCategoryCell.xib in Resources */,
+				04F334801D3CCCDC008ECEB3 /* ZCTopicVoiceView.xib in Resources */,
 				0402C78C1D23B5E000785417 /* ZCRecommendUserCell.xib in Resources */,
 				047734A11D37696D00633353 /* ZCPublishView.xib in Resources */,
 				045266031D20FE0500289DDA /* Info.plist in Resources */,
@@ -708,6 +726,7 @@
 				0452661E1D21202B00289DDA /* UIView+Extension.m in Sources */,
 				0452661B1D21149D00289DDA /* ZCTabBar.m in Sources */,
 				045266081D21038C00289DDA /* ZCCustomerTabBarController.m in Sources */,
+				04F3347E1D3CCCC9008ECEB3 /* ZCTopicVideoView.m in Sources */,
 				0436ED991D2CF58D002AF35A /* ZCTopic.m in Sources */,
 				042BD2281D2657B500E40558 /* ZCRecommendTagCell.m in Sources */,
 				0402C7921D23B61D00785417 /* ZCRecommendUser.m in Sources */,
@@ -733,6 +752,7 @@
 				0402C78B1D23B5E000785417 /* ZCRecommendUserCell.m in Sources */,
 				045266041D20FE0500289DDA /* main.m in Sources */,
 				043470BE1D2F4EFC009D2548 /* NSDate+ZCExtension.m in Sources */,
+				04F3347B1D3CCCB2008ECEB3 /* ZCTopicVoiceView.m in Sources */,
 				045266121D2109C800289DDA /* ZCMeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

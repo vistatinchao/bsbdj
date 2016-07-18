@@ -9,6 +9,8 @@
 #import "ZCTopicCell.h"
 #import "ZCTopic.h"
 #import "ZCTopicPictureView.h"
+#import "ZCTopicVideoView.h"
+#import "ZCTopicVoiceView.h"
 @interface ZCTopicCell()
 
 @property (weak, nonatomic) IBOutlet UIImageView *headIcon;
@@ -21,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *sinaView;
 @property (weak, nonatomic) IBOutlet UILabel *text_label;
 @property (nonatomic,weak)ZCTopicPictureView *pictureView;
+@property (nonatomic,weak)ZCTopicVideoView *videoView;
+@property (nonatomic,weak)ZCTopicVoiceView *voiceView;
 @end
 @implementation ZCTopicCell
 
@@ -33,6 +37,26 @@
         _pictureView = pictureView;
     }
     return _pictureView;
+}
+
+- (ZCTopicVoiceView *)voiceView
+{
+    if (!_voiceView) {
+        ZCTopicVoiceView *voiceView = [ZCTopicVoiceView voiceView];
+        [self.contentView addSubview:voiceView];
+        _voiceView = voiceView;
+    }
+    return _voiceView;
+}
+
+- (ZCTopicVideoView *)videoView
+{
+    if (!_videoView) {
+       ZCTopicVideoView *videoView = [ZCTopicVideoView videoView];
+        [self.contentView addSubview:videoView];
+        _videoView = videoView;
+    }
+    return _videoView;
 }
 
 - (void)awakeFromNib {
@@ -55,12 +79,33 @@
     [self setupButtonTitle:self.shareButton count:topic.repost placeholder:@"分享"];
     [self setupButtonTitle:self.commentButton count:topic.comment placeholder:@"评论"];
     if (topic.type == ZCTopicTypePicture) {
+        self.pictureView.hidden = NO;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
         self.pictureView.topic = topic;
         self.pictureView.frame = topic.pictureF;
     }
     else if (topic.type==ZCTopicTypeVoice)
     {
-        
+        self.voiceView.hidden = NO;
+        self.videoView.hidden = YES;
+        self.pictureView.hidden = YES;
+        self.voiceView.topic = topic;
+        self.voiceView.frame = topic.voiceF;
+    }
+    else if (topic.type==ZCTopicTypeVideo)
+    {
+        self.videoView.hidden = NO;
+        self.pictureView.hidden = YES;
+        self.voiceView.hidden = YES;
+        self.videoView.topic = topic;
+        self.videoView.frame = topic.videoF;
+    }
+    else
+    {
+        self.pictureView.hidden = YES;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
     }
 
 

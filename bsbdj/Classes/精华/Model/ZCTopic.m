@@ -11,7 +11,6 @@
 @implementation ZCTopic
 {
     CGFloat _cellHight;
-    CGRect _pictureF;
 }
 
 + (NSDictionary *)replacedKeyFromPropertyName
@@ -79,7 +78,22 @@
         }
         else if(self.type==ZCTopicTypeVoice)
         {
-            
+            CGFloat voiceX = ZCTopicCellMargin;
+            CGFloat voiceY = ZCTopicCellMargin+textH+ZCTopicCellTextY;
+            CGFloat voiceW = maxSize.width;
+            CGFloat voiceH = voiceW*self.height/self.width;
+            _voiceF = CGRectMake(voiceX, voiceY, voiceW, voiceH);
+            _cellHight = _cellHight+voiceH+ZCTopicCellMargin;
+
+        }
+        else if(self.type == ZCTopicTypeVideo)
+        {
+            CGFloat videoX = ZCTopicCellMargin;
+            CGFloat videoY = ZCTopicCellMargin+textH+ZCTopicCellTextY;
+            CGFloat videoW = maxSize.width;
+            CGFloat videoH = videoW*self.height/self.width;
+            _videoF = CGRectMake(videoX, videoY, videoW, videoH);
+            _cellHight = _cellHight+videoH+ZCTopicCellMargin;
         }
         _cellHight = _cellHight+ZCTopicCellBottomBarH+ZCTopicCellMargin;
     }

@@ -38,9 +38,7 @@
 - (void)setTopic:(ZCTopic *)topic
 {
     _topic = topic;
-    ZCLog(@"%@",self.imageView);
-   // [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
-    
+
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         self.progressView.hidden = NO;
         topic.picturePregress = 1.0*receivedSize/expectedSize;
