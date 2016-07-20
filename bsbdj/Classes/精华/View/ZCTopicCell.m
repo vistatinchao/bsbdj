@@ -123,12 +123,19 @@
     }
     [button setTitle:placeHolder forState:UIControlStateNormal];
 }
+
+- (IBAction)more:(id)sender
+{
+    UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"收藏",@"举报", nil];
+    [sheet showInView:self.window];
+}
+
 - (void)setFrame:(CGRect)frame
 {
     frame.origin.x = ZCTopicCellMargin;
     frame.origin.y+=ZCTopicCellMargin;
     frame.size.width -=2*ZCTopicCellMargin;
-    frame.size.height-=ZCTopicCellMargin;
+    frame.size.height=self.topic.cellHight-ZCTopicCellMargin;
     [super setFrame:frame];
 }
 @end

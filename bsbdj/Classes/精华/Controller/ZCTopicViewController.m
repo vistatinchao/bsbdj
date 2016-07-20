@@ -7,6 +7,7 @@
 //
 
 #import "ZCTopicViewController.h"
+#import "ZCCommentViewController.h"
 #import "ZCTopic.h"
 #import "ZCTopicCell.h"
 @interface ZCTopicViewController ()
@@ -121,6 +122,14 @@ static NSString *const ZCTopCellID = @"topic";
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZCCommentViewController *cvc = [[ZCCommentViewController alloc]init];
+    cvc.topic = self.topics[indexPath.row];
+    [self.navigationController pushViewController:cvc animated:YES];
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

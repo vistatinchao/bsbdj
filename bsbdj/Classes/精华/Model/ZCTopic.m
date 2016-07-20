@@ -15,7 +15,7 @@
 
 + (NSDictionary *)replacedKeyFromPropertyName
 {
-    return @{@"small_image":@"image0",@"middle_image":@"image2",@"large_image":@"image1"};
+    return @{@"small_image":@"image0",@"middle_image":@"image2",@"large_image":@"image1",@"ID":@"id"};
 }
 
 -(NSString *)create_time

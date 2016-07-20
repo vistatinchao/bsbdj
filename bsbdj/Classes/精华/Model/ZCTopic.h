@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface ZCTopic : NSObject
+@property (nonatomic,copy) NSString *ID;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *profile_image;
 @property (nonatomic,copy) NSString *create_time;
