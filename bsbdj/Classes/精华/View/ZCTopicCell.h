@@ -10,4 +10,5 @@
 @class ZCTopic;
 @interface ZCTopicCell : UITableViewCell
 @property (nonatomic,strong)ZCTopic *topic;
++(instancetype)cell;
 @end

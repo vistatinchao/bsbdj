@@ -11,6 +11,8 @@
 #import "ZCTopicPictureView.h"
 #import "ZCTopicVideoView.h"
 #import "ZCTopicVoiceView.h"
+#import "ZCComment.h"
+#import "ZCUser.h"
 @interface ZCTopicCell()
 
 @property (weak, nonatomic) IBOutlet UIImageView *headIcon;
@@ -25,10 +27,15 @@
 @property (nonatomic,weak)ZCTopicPictureView *pictureView;
 @property (nonatomic,weak)ZCTopicVideoView *videoView;
 @property (nonatomic,weak)ZCTopicVoiceView *voiceView;
+@property (weak, nonatomic) IBOutlet UIView *topCmtView;
+@property (weak, nonatomic) IBOutlet UILabel *topCmtContentLabel;
 @end
 @implementation ZCTopicCell
 
-
++(instancetype)cell
+{
+    return [[[NSBundle mainBundle]loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
+}
 - (ZCTopicPictureView *)pictureView
 {
     if (!_pictureView) {
@@ -108,6 +115,14 @@
         self.voiceView.hidden = YES;
     }
 
+    if (topic.top_cmt) {
+        self.topCmtView.hidden = NO;
+        self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@:%@",topic.top_cmt.user.username,topic.top_cmt.content];
+    }
+    else
+    {
+        self.topCmtView.hidden = YES;
+    }
 
 }
 

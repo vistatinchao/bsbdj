@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class ZCComment;
 @interface ZCCommentCell : UITableViewCell
-
+@property (nonatomic,strong)ZCComment *comment;
 @end

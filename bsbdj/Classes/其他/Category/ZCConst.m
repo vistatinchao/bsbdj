@@ -18,3 +18,8 @@ CGFloat const ZCTopicCellBottomBarH = 44;
 
 CGFloat const ZCTopicCellPictureMaxH = 1000;
 CGFloat const ZCTopicCellPictureBreakH = 250;
+
+NSString *const ZCUserSexMale = @"m";
+NSString *const ZCUserSexFemale = @"f";
+
+CGFloat const ZCTopicCellTopCmtTitleH = 20;

@@ -75,6 +75,7 @@ static NSString *const ZCTopCellID = @"topic";
     params[@"maxtime"] = self.maxtime;
     self.params = params;
 
+
     [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php"  parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (self.params!=params) {
             return ;

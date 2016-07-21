@@ -25,3 +25,8 @@ UIKIT_EXTERN CGFloat const ZCTopicCellBottomBarH;
 
 UIKIT_EXTERN CGFloat const ZCTopicCellPictureMaxH;
 UIKIT_EXTERN CGFloat const ZCTopicCellPictureBreakH;
+
+UIKIT_EXTERN NSString *const ZCUserSexMale;
+UIKIT_EXTERN NSString *const ZCUserSexFemale;
+
+UIKIT_EXTERN CGFloat const ZCTopicCellTopCmtTitleH;

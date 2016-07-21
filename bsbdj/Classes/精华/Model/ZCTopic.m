@@ -7,7 +7,8 @@
 //
 
 #import "ZCTopic.h"
-
+#import "ZCComment.h"
+#import "ZCUser.h"
 @implementation ZCTopic
 {
     CGFloat _cellHight;
@@ -15,7 +16,7 @@
 
 + (NSDictionary *)replacedKeyFromPropertyName
 {
-    return @{@"small_image":@"image0",@"middle_image":@"image2",@"large_image":@"image1",@"ID":@"id"};
+    return @{@"small_image":@"image0",@"middle_image":@"image2",@"large_image":@"image1",@"ID":@"id",@"top_cmt":@"top_cmt[0]"};
 }
 
 -(NSString *)create_time
@@ -94,6 +95,12 @@
             CGFloat videoH = videoW*self.height/self.width;
             _videoF = CGRectMake(videoX, videoY, videoW, videoH);
             _cellHight = _cellHight+videoH+ZCTopicCellMargin;
+        }
+        if (self.top_cmt) {
+            NSString *content = [NSString stringWithFormat:@"%@:%@",self.top_cmt.user.username,self.top_cmt.content];
+            CGFloat contentH = [content boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.height;
+            _cellHight= _cellHight+contentH+ZCTopicCellMargin+ZCTopicCellTopCmtTitleH;
+
         }
         _cellHight = _cellHight+ZCTopicCellBottomBarH+ZCTopicCellMargin;
     }

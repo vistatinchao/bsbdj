@@ -156,6 +156,37 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mXO-bR-blf" userLabel="最热评论父控件">
+                        <rect key="frame" x="10" y="109" width="355" height="98"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKJ-wy-vw3">
+                                <rect key="frame" x="0.0" y="0.0" width="56" height="20"/>
+                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="BAU-DC-5nV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTq-YH-Ice" userLabel="评论内容">
+                                <rect key="frame" x="0.0" y="20" width="355" height="78"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dTq-YH-Ice" secondAttribute="trailing" id="ILE-Et-bX4"/>
+                            <constraint firstItem="dTq-YH-Ice" firstAttribute="leading" secondItem="mXO-bR-blf" secondAttribute="leading" id="OsD-pt-zQF"/>
+                            <constraint firstItem="AKJ-wy-vw3" firstAttribute="leading" secondItem="mXO-bR-blf" secondAttribute="leading" id="Ucf-oH-zW2"/>
+                            <constraint firstItem="dTq-YH-Ice" firstAttribute="top" secondItem="AKJ-wy-vw3" secondAttribute="bottom" id="gdy-mD-YdM"/>
+                            <constraint firstItem="AKJ-wy-vw3" firstAttribute="top" secondItem="mXO-bR-blf" secondAttribute="top" id="krk-Vb-8l2"/>
+                            <constraint firstAttribute="bottom" secondItem="dTq-YH-Ice" secondAttribute="bottom" id="qPU-DU-i68"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="V7S-xO-htG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3Km-Cz-1E6"/>
@@ -169,11 +200,14 @@
                     <constraint firstItem="uma-Jk-cZ4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Tsz-bP-26j"/>
                     <constraint firstAttribute="trailing" secondItem="Kie-GN-hay" secondAttribute="trailing" constant="10" id="V1T-tG-HFU"/>
                     <constraint firstItem="EIb-G2-Abu" firstAttribute="leading" secondItem="uma-Jk-cZ4" secondAttribute="leading" id="Xzv-Vw-Hrf"/>
+                    <constraint firstAttribute="trailing" secondItem="mXO-bR-blf" secondAttribute="trailing" constant="10" id="bm5-Py-cuh"/>
                     <constraint firstItem="0Ka-kK-i7z" firstAttribute="top" secondItem="uma-Jk-cZ4" secondAttribute="top" id="cvK-Z2-2BW"/>
                     <constraint firstItem="0Ka-kK-i7z" firstAttribute="leading" secondItem="uma-Jk-cZ4" secondAttribute="trailing" constant="10" id="eNL-QU-hzc"/>
+                    <constraint firstItem="V7S-xO-htG" firstAttribute="top" secondItem="mXO-bR-blf" secondAttribute="bottom" constant="10" id="eY9-N6-ZIB"/>
                     <constraint firstItem="bml-FM-hqw" firstAttribute="bottom" secondItem="uma-Jk-cZ4" secondAttribute="bottom" id="gHF-zA-1qS"/>
                     <constraint firstItem="bml-FM-hqw" firstAttribute="leading" secondItem="0Ka-kK-i7z" secondAttribute="leading" id="ssd-Zr-hqU"/>
                     <constraint firstItem="EIb-G2-Abu" firstAttribute="trailing" secondItem="Kie-GN-hay" secondAttribute="trailing" id="yTP-N3-HNu"/>
+                    <constraint firstItem="mXO-bR-blf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="zF0-Xf-8ZF"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -186,8 +220,10 @@
                 <outlet property="shareButton" destination="lZo-vg-ouT" id="wH6-WM-m4l"/>
                 <outlet property="sinaView" destination="Ft4-9V-1n8" id="GyN-Uh-PUO"/>
                 <outlet property="text_label" destination="EIb-G2-Abu" id="37B-Qq-eEf"/>
+                <outlet property="topCmtContentLabel" destination="dTq-YH-Ice" id="yUT-ST-MBW"/>
+                <outlet property="topCmtView" destination="mXO-bR-blf" id="4WZ-tt-xU4"/>
             </connections>
-            <point key="canvasLocation" x="85.5" y="301"/>
+            <point key="canvasLocation" x="-25.5" y="265"/>
         </tableViewCell>
     </objects>
     <resources>

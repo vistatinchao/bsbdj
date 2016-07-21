@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class ZCComment;
 @interface ZCTopic : NSObject
 @property (nonatomic,copy) NSString *ID;
 @property (nonatomic,copy) NSString *name;
@@ -19,6 +19,7 @@
 @property (nonatomic,assign)NSInteger repost;
 @property (nonatomic,assign)NSInteger comment;
 @property (nonatomic,assign,getter=isSina_v)BOOL sina_v;
+@property (nonatomic,strong) ZCComment *top_cmt;
 /** 音频时长 */
 @property (nonatomic, assign) NSInteger voicetime;
 /** 视频时长 */
