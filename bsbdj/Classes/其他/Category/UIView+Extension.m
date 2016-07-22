@@ -93,4 +93,17 @@
     return self.frame.size;
 }
 
+- (BOOL)isShowingOnKeyWindow
+{
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    CGRect newFrame = [keyWindow convertRect:self.frame fromView:keyWindow];
+    CGRect winBounds = keyWindow.bounds;
+
+    BOOL inserSects = CGRectIntersectsRect(newFrame, winBounds);
+    return !self.isHidden && self.alpha>0.01 && self.window==keyWindow && inserSects;
+}
+
+
+
+
 @end

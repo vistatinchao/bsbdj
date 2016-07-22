@@ -19,7 +19,7 @@
 @property (nonatomic,assign)NSInteger repost;
 @property (nonatomic,assign)NSInteger comment;
 @property (nonatomic,assign,getter=isSina_v)BOOL sina_v;
-@property (nonatomic,strong) ZCComment *top_cmt;
+
 /** 音频时长 */
 @property (nonatomic, assign) NSInteger voicetime;
 /** 视频时长 */
@@ -38,7 +38,7 @@
 @property (nonatomic,copy) NSString *middle_image;
 @property (nonatomic,copy) NSString *large_image;
 @property (nonatomic,assign)ZCTopicType type;
-
+@property (nonatomic,strong) ZCComment *top_cmt;
 
 /**
  *  辅助属性

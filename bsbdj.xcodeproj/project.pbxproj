@@ -29,6 +29,7 @@
 		043C192A1D3642D5009B1E74 /* ZCShowPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043C19281D3642D5009B1E74 /* ZCShowPictureViewController.m */; };
 		043C192B1D3642D5009B1E74 /* ZCShowPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043C19291D3642D5009B1E74 /* ZCShowPictureViewController.xib */; };
 		044586A81D3F3721000F278A /* ZCCommentHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044586A71D3F3721000F278A /* ZCCommentHeadView.m */; };
+		044FDBB11D40A97A000E718A /* ZCTopicWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 044FDBB01D40A97A000E718A /* ZCTopicWindow.m */; };
 		045265C11D20F95100289DDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045265C01D20F95100289DDA /* Assets.xcassets */; };
 		045265CF1D20F95200289DDA /* bsbdjTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 045265CE1D20F95200289DDA /* bsbdjTests.m */; };
 		045265DA1D20F95200289DDA /* bsbdjUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 045265D91D20F95200289DDA /* bsbdjUITests.m */; };
@@ -125,6 +126,8 @@
 		043C19291D3642D5009B1E74 /* ZCShowPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCShowPictureViewController.xib; sourceTree = "<group>"; };
 		044586A61D3F3721000F278A /* ZCCommentHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCommentHeadView.h; sourceTree = "<group>"; };
 		044586A71D3F3721000F278A /* ZCCommentHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCommentHeadView.m; sourceTree = "<group>"; };
+		044FDBAF1D40A97A000E718A /* ZCTopicWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTopicWindow.h; sourceTree = "<group>"; };
+		044FDBB01D40A97A000E718A /* ZCTopicWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTopicWindow.m; sourceTree = "<group>"; };
 		045265B11D20F95100289DDA /* bsbdj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bsbdj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045265C01D20F95100289DDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		045265CA1D20F95200289DDA /* bsbdjTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bsbdjTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -397,6 +400,8 @@
 				0477349D1D37695D00633353 /* ZCPublishView.h */,
 				0477349E1D37695D00633353 /* ZCPublishView.m */,
 				047734A01D37696D00633353 /* ZCPublishView.xib */,
+				044FDBAF1D40A97A000E718A /* ZCTopicWindow.h */,
+				044FDBB01D40A97A000E718A /* ZCTopicWindow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -766,6 +771,7 @@
 				0402C7921D23B61D00785417 /* ZCRecommendUser.m in Sources */,
 				047FB2871D3E08F300B78870 /* ZCCommentViewController.m in Sources */,
 				0402C78F1D23B60E00785417 /* ZCRecommendCategory.m in Sources */,
+				044FDBB11D40A97A000E718A /* ZCTopicWindow.m in Sources */,
 				04E5D2561D2E549A0042CB1A /* ZCTopicViewController.m in Sources */,
 				045266021D20FE0500289DDA /* AppDelegate.m in Sources */,
 				047FB28B1D3E11B000B78870 /* ZCUser.m in Sources */,

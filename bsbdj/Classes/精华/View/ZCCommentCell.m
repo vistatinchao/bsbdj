@@ -29,6 +29,16 @@
     self.backgroundView = bgView;
 }
 
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    return NO;
+}
+
 - (void)setComment:(ZCComment *)comment
 {
     _comment = comment;

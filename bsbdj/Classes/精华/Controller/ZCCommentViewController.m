@@ -90,6 +90,10 @@ static NSString * const ZCCommentID = @"comment";
 
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+            self.tableView.footer.hidden = YES;
+            return;
+        }
             NSArray *newComment = [ZCComment objectArrayWithKeyValuesArray:responseObject[@"data"]];
             [self.latestComments addObjectsFromArray:newComment];
       
@@ -121,6 +125,8 @@ static NSString * const ZCCommentID = @"comment";
 
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+         ZCLog(@"%@",responseObject);
+
         self.hotComments = [ZCComment objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         self.latestComments = [ZCComment objectArrayWithKeyValuesArray:responseObject[@"data"]];
         self.page = 1;
@@ -188,6 +194,47 @@ static NSString * const ZCCommentID = @"comment";
         header.title = @"最新评论";
     }
     return header;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    if (menu.isMenuVisible) {
+        [menu setMenuVisible:NO animated:YES];
+    }
+    else
+    {
+        ZCCommentCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        [cell becomeFirstResponder];
+        UIMenuItem *ding = [[UIMenuItem alloc]initWithTitle:@"顶" action:@selector(ding:)];
+        UIMenuItem *replay = [[UIMenuItem alloc]initWithTitle:@"回复" action:@selector(replay:)];
+        UIMenuItem *report = [[UIMenuItem alloc]initWithTitle:@"举报" action:@selector(report:)];
+
+        menu.menuItems = @[ding,replay,report];
+        CGRect rect = CGRectMake(0, cell.height*0.5, cell.width, cell.height*0.5);
+        [menu setTargetRect:rect inView:cell];
+        [menu setMenuVisible:YES animated:YES];
+    }
+}
+
+#pragma mark menuitem处理
+
+- (void)ding:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    ZCLog(@"%s %@",__func__,[self commentInIndexPath:indexPath]);
+}
+
+- (void)replay:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    ZCLog(@"%s %@",__func__,[self commentInIndexPath:indexPath]);
+}
+
+- (void)report:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    ZCLog(@"%s %@",__func__,[self commentInIndexPath:indexPath]);
 }
 - (void)setupBasic
 {
