@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZCMeViewController : UIViewController
+@interface ZCMeViewController : UITableViewController
 
 @end

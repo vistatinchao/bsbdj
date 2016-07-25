@@ -8,6 +8,7 @@
 
 #import "ZCTopicViewController.h"
 #import "ZCCommentViewController.h"
+#import "ZCNewViewController.h"
 #import "ZCTopic.h"
 #import "ZCTopicCell.h"
 @interface ZCTopicViewController ()
@@ -15,6 +16,7 @@
 @property (nonatomic,assign)NSInteger page;
 @property (nonatomic,copy) NSString *maxtime;
 @property (nonatomic,strong)NSDictionary *params;
+@property (nonatomic,assign)NSInteger lastSelectedIndex;
 @end
 static NSString *const ZCTopCellID = @"topic";
 @implementation ZCTopicViewController
@@ -25,6 +27,32 @@ static NSString *const ZCTopCellID = @"topic";
 
     [self setupRefresh];
 
+}
+
+- (void)setTableView
+{
+
+    // 设置内边距
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    CGFloat top = ZCTitlesViewH+ZCTitlesViewY;
+    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZCTopicCell class]) bundle:nil] forCellReuseIdentifier:ZCTopCellID];
+    [ZCNotetCenter addObserver:self selector:@selector(tabBarSelect) name:ZCTabBarDidSelectNotification object:nil];
+}
+
+- (void)tabBarSelect
+{
+    if (self.lastSelectedIndex == self.tabBarController.selectedIndex && [self.view isShowingOnKeyWindow]) {
+        [self.tableView.header beginRefreshing];
+    }
+    self.lastSelectedIndex = self.tabBarController.selectedIndex;
+}
+- (NSString *)a
+{
+    return [self.parentViewController isKindOfClass:[ZCNewViewController class]]?@"newlist":@"list";
 }
 
 - (void)setupRefresh
@@ -41,7 +69,7 @@ static NSString *const ZCTopCellID = @"topic";
 {
     [self.tableView.footer endRefreshing];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.a;
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     self.params = params;
@@ -67,7 +95,7 @@ static NSString *const ZCTopCellID = @"topic";
 {
     [self.tableView.header endRefreshing];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.a;
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     NSInteger page = self.page+1;
@@ -94,18 +122,6 @@ static NSString *const ZCTopCellID = @"topic";
     }];
 }
 
-- (void)setTableView
-{
-    
-    // 设置内边距
-    CGFloat bottom = self.tabBarController.tabBar.height;
-    CGFloat top = ZCTitlesViewH+ZCTitlesViewY;
-    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = [UIColor clearColor];
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZCTopicCell class]) bundle:nil] forCellReuseIdentifier:ZCTopCellID];
-}
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     self.tableView.footer.hidden = (self.topics.count==0);

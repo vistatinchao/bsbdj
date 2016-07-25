@@ -46,7 +46,7 @@
     ZCFriendTrendsViewController *fvc = [[ZCFriendTrendsViewController alloc]init];
     [self addChildVC:fvc title:@"关注" image:@"tabBar_friendTrends_icon" selectImage:@"tabBar_friendTrends_click_icon"];
 
-    ZCMeViewController *mvc = [[ZCMeViewController alloc]init];
+    ZCMeViewController *mvc = [[ZCMeViewController alloc]initWithStyle:UITableViewStyleGrouped];
     [self addChildVC:mvc title:@"我" image:@"tabBar_me_icon" selectImage:@"tabBar_me_click_icon"];
     [self setValue:[[ZCTabBar alloc]init] forKey:@"tabBar"];
 

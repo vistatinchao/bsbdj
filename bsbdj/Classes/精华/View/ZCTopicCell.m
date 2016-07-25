@@ -77,7 +77,8 @@
 {
     _topic = topic;
     self.sinaView.hidden = !topic.sina_v;
-    [self.headIcon sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+   // [self.headIcon sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    [self.headIcon setHeader:topic.profile_image];
     self.nameLabel.text = topic.name;
     self.createTimeLabel.text = topic.create_time;
     self.text_label.text = topic.text;

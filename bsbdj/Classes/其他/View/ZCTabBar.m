@@ -40,22 +40,29 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    static BOOL added = NO;
     self.publishBtn.bounds= CGRectMake(0, 0, self.publishBtn.currentBackgroundImage.size.width, self.publishBtn.currentBackgroundImage.size.height);
     self.publishBtn.center = CGPointMake(ZCScreenW*0.5, self.height*0.5);
     CGFloat itemY = 0;
     CGFloat itemW = self.width/5.0;
     CGFloat itemH = self.height;
     NSInteger index = 0;
-    for (UIView *itemView in self.subviews)
+    for (UIControl *button in self.subviews)
     {
-        if (![itemView isKindOfClass:[UIControl class]] || (itemView==self.publishBtn))
+        if (![button isKindOfClass:[UIControl class]] || (button==self.publishBtn))
         {
             continue;
         }
-        itemView.frame = CGRectMake(itemW*((index>1)?index+1:index), itemY, itemW, itemH);
+        button.frame = CGRectMake(itemW*((index>1)?index+1:index), itemY, itemW, itemH);
         index++;
+        if (added==NO) {
+            [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+        }
     }
-
+    added = YES;
 }
-
+- (void)buttonClick
+{
+    [ZCNotetCenter postNotificationName:ZCTabBarDidSelectNotification object:nil userInfo:nil];
+}
 @end

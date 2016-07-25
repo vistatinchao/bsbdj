@@ -6,8 +6,8 @@
 //  Copyright © 2016年 United Network Services Ltd. of Shenzhen City. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ZCEssenceViewController.h"
 
-@interface ZCNewViewController : UIViewController
+@interface ZCNewViewController :ZCEssenceViewController
 
 @end

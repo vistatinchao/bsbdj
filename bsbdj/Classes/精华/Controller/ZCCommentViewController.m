@@ -70,7 +70,7 @@ static NSString * const ZCCommentID = @"comment";
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewComments)];
     [self.tableView.header beginRefreshing];
 
-    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreComments)];
+    self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreComments)];
     self.tableView.footer.hidden = YES;
 }
 
@@ -91,7 +91,8 @@ static NSString * const ZCCommentID = @"comment";
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 
         if (![responseObject isKindOfClass:[NSDictionary class]]) {
-            self.tableView.footer.hidden = YES;
+//            self.tableView.footer.hidden = YES;
+            [self.tableView.footer noticeNoMoreData];
             return;
         }
             NSArray *newComment = [ZCComment objectArrayWithKeyValuesArray:responseObject[@"data"]];
@@ -125,7 +126,11 @@ static NSString * const ZCCommentID = @"comment";
 
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-         ZCLog(@"%@",responseObject);
+
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+            [self.tableView.header endRefreshing];
+            return ;
+        }
 
         self.hotComments = [ZCComment objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         self.latestComments = [ZCComment objectArrayWithKeyValuesArray:responseObject[@"data"]];

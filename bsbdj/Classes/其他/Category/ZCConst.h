@@ -30,3 +30,7 @@ UIKIT_EXTERN NSString *const ZCUserSexMale;
 UIKIT_EXTERN NSString *const ZCUserSexFemale;
 
 UIKIT_EXTERN CGFloat const ZCTopicCellTopCmtTitleH;
+
+UIKIT_EXTERN NSString *const ZCTabBarDidSelectNotification;
+UIKIT_EXTERN NSString *const ZCSelectedControllerIndexKey;
+UIKIT_EXTERN NSString *const ZCSelectedControllerKey;
