@@ -9,6 +9,7 @@
 #import "ZCMeFootView.h"
 #import "ZCSquaureButton.h"
 #import "ZCSquare.h"
+#import "ZCWebViewController.h"
 @implementation ZCMeFootView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -61,9 +62,18 @@
 
 }
 
-- (void)buttonClick:(UIButton *)button
+- (void)buttonClick:(ZCSquaureButton *)button
 {
+    if (![button.square.url hasPrefix:@"http"]) {
+        return;
+    }
+    ZCWebViewController *web = [[ZCWebViewController alloc]init];
+    web.url = button.square.url;
+    web.title = button.square.name;
 
+    UITabBarController *tabBarVC = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    UINavigationController *nav = (UINavigationController *)tabBarVC.selectedViewController;
+    [nav pushViewController:web animated:YES];
 }
 
 

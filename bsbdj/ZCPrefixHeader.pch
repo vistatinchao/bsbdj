@@ -29,6 +29,7 @@
 #import <POP.h>
 #import "UIImage+ZCExtension.h"
 #import "UIImageView+ZCExtension.h"
+#import <NJKWebViewProgress.h>
 #define ZCLogFunc ZCLog(@"%s", __func__)
 #define ZCNotetCenter [NSNotificationCenter defaultCenter]
 #define ZCRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
