@@ -8,6 +8,8 @@
 
 #import "ZCPublishView.h"
 #import "ZCVerticalButton.h"
+#import "ZCPostWordViewController.h"
+#import "ZCCustomeNavigationController.h"
 typedef void (^completionBlock)();
 static CGFloat const ZCAnimationDelay = 0.1;
 static CGFloat const ZCSpringFactor = 10;
@@ -18,7 +20,7 @@ static UIWindow *window_;
 {
     window_ = [[UIWindow alloc]init];
     window_.frame = [UIScreen mainScreen].bounds;
-    window_.backgroundColor = [[UIColor whiteColor]colorWithAlphaComponent:0.8];
+    window_.backgroundColor = [[UIColor whiteColor]colorWithAlphaComponent:1.0];
     window_.hidden = NO;
 
     ZCPublishView *publishView = [ZCPublishView publishView];
@@ -61,6 +63,7 @@ static UIWindow *window_;
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         [button setTitle:titles[i] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:images[i]] forState:UIControlStateNormal];
 
         int row = i/maxCols;
@@ -116,8 +119,8 @@ static UIWindow *window_;
         if (i==self.subviews.count-1) {
             [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
                 window_.backgroundColor = [UIColor clearColor];
-                window_ = nil;
                 [self removeFromSuperview];
+                 window_ = nil;
                 !block?:block();
             }];
         }
@@ -133,12 +136,13 @@ static UIWindow *window_;
 {
     [self cancelWithCompletionBlock:^{
         switch (button.tag) {
-            case 0:
-                ZCLog(@"发视频");
+            case 2:{
+                ZCLog(@"发段子");
+                ZCPostWordViewController *pvc = [[ZCPostWordViewController alloc]init];
+                 ZCCustomeNavigationController*nvc = [[ZCCustomeNavigationController alloc]initWithRootViewController:pvc];
+                [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nvc animated:YES completion:nil];
                 break;
-                case 1:
-                ZCLog(@"发图片");
-                break;
+            }
             default:
                 break;
         }

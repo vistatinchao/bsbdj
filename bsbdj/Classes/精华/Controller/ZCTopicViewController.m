@@ -22,6 +22,7 @@ static NSString *const ZCTopCellID = @"topic";
 @implementation ZCTopicViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 
     [self setTableView];
 

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZCAddtagToobar">
+            <rect key="frame" x="0.0" y="0.0" width="362" height="106"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yi7-8o-oaC" userLabel="顶部">
+                    <rect key="frame" x="0.0" y="0.0" width="362" height="71"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1H-dd-yZ8" userLabel="底部">
+                    <rect key="frame" x="0.0" y="71" width="362" height="35"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar-light" translatesAutoresizingMaskIntoConstraints="NO" id="eRT-4c-jmg">
+                            <rect key="frame" x="0.0" y="0.0" width="362" height="35"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmz-Jt-QJv">
+                            <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="qil-lf-OUC"/>
+                            </constraints>
+                            <state key="normal" image="post-@"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5g8-Uj-IhH">
+                            <rect key="frame" x="35" y="0.0" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="wWU-6h-Rut"/>
+                            </constraints>
+                            <state key="normal" image="post-#"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="vmz-Jt-QJv" firstAttribute="leading" secondItem="V1H-dd-yZ8" secondAttribute="leading" id="Bvd-vn-s0H"/>
+                        <constraint firstItem="eRT-4c-jmg" firstAttribute="top" secondItem="V1H-dd-yZ8" secondAttribute="top" id="F2u-6g-vSP"/>
+                        <constraint firstAttribute="bottom" secondItem="eRT-4c-jmg" secondAttribute="bottom" id="KYT-mP-tip"/>
+                        <constraint firstItem="5g8-Uj-IhH" firstAttribute="top" secondItem="V1H-dd-yZ8" secondAttribute="top" id="PDT-CR-tx2"/>
+                        <constraint firstItem="5g8-Uj-IhH" firstAttribute="leading" secondItem="vmz-Jt-QJv" secondAttribute="trailing" id="ayX-8s-ZEF"/>
+                        <constraint firstAttribute="bottom" secondItem="vmz-Jt-QJv" secondAttribute="bottom" id="bGU-cp-ZWu"/>
+                        <constraint firstItem="vmz-Jt-QJv" firstAttribute="top" secondItem="V1H-dd-yZ8" secondAttribute="top" id="cXt-xc-GPJ"/>
+                        <constraint firstAttribute="trailing" secondItem="eRT-4c-jmg" secondAttribute="trailing" id="eIr-y8-LS6"/>
+                        <constraint firstAttribute="bottom" secondItem="5g8-Uj-IhH" secondAttribute="bottom" id="ej6-ZL-Tsc"/>
+                        <constraint firstAttribute="height" constant="35" id="mSR-DW-4O0"/>
+                        <constraint firstItem="eRT-4c-jmg" firstAttribute="leading" secondItem="V1H-dd-yZ8" secondAttribute="leading" id="n5U-SU-Z6X"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="V1H-dd-yZ8" firstAttribute="top" secondItem="Yi7-8o-oaC" secondAttribute="bottom" id="1cf-iq-IUI"/>
+                <constraint firstAttribute="trailing" secondItem="Yi7-8o-oaC" secondAttribute="trailing" id="85p-gd-QHb"/>
+                <constraint firstItem="Yi7-8o-oaC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ADY-ZJ-Z1w"/>
+                <constraint firstItem="V1H-dd-yZ8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ck5-1o-x4o"/>
+                <constraint firstItem="Yi7-8o-oaC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="m1B-bv-vUw"/>
+                <constraint firstAttribute="trailing" secondItem="V1H-dd-yZ8" secondAttribute="trailing" id="qvq-zf-VQv"/>
+                <constraint firstAttribute="bottom" secondItem="V1H-dd-yZ8" secondAttribute="bottom" id="sRe-wx-z2k"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="topView" destination="Yi7-8o-oaC" id="XlV-3W-JSe"/>
+            </connections>
+            <point key="canvasLocation" x="355" y="366.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="post-#" width="19" height="19"/>
+        <image name="post-@" width="19" height="19"/>
+        <image name="tabbar-light" width="320" height="49"/>
+    </resources>
+</document>

@@ -52,8 +52,6 @@ static UIWindow *window_;
     UIViewController *emptyVC = [[UIViewController alloc]init];
     window_.rootViewController = emptyVC;
     [window_ addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(windowClick)]];
-    ZCLog(@"%@",window_);
-    //[self initialize];
 }
 
 

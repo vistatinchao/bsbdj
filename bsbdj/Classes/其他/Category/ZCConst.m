@@ -27,3 +27,5 @@ CGFloat const ZCTopicCellTopCmtTitleH = 20;
 NSString *const ZCTabBarDidSelectNotification = @"ZCTabBarDidSelectNotification";
 NSString *const ZCSelectedControllerIndexKey = @"ZCSelectedControllerIndexKey";
 NSString *const ZCSelectedControllerKey = @"ZCSelectedControllerKey";
+
+CGFloat const ZCTagMargin = 5;

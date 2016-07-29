@@ -38,7 +38,8 @@
     self.titleLabel.x = 0;
     self.titleLabel.y = self.imageView.height;
     self.titleLabel.width = self.width;
-    self.titleLabel.height = self.height-self.imageView.height;
+    self.titleLabel.height = self.height-self.titleLabel.y;
+  
 
 }
 
