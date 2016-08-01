@@ -18,6 +18,7 @@
 		0416B1AB1D2A40CD000A609E /* ZCLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0416B1A91D2A40CD000A609E /* ZCLoginRegisterViewController.xib */; };
 		0416B1AE1D2A4DB2000A609E /* ZCVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416B1AD1D2A4DB2000A609E /* ZCVerticalButton.m */; };
 		0416B1B11D2A59E7000A609E /* ZCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416B1B01D2A59E7000A609E /* ZCTextField.m */; };
+		0420D58C1D4F3D7700D49045 /* ZCTagTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0420D58B1D4F3D7700D49045 /* ZCTagTextField.m */; };
 		042BD2241D26567F00E40558 /* ZCRecommendTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042BD2231D26567F00E40558 /* ZCRecommendTagsViewController.m */; };
 		042BD2281D2657B500E40558 /* ZCRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042BD2261D2657B500E40558 /* ZCRecommendTagCell.m */; };
 		042BD2291D2657B500E40558 /* ZCRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042BD2271D2657B500E40558 /* ZCRecommendTagCell.xib */; };
@@ -120,6 +121,8 @@
 		0416B1AD1D2A4DB2000A609E /* ZCVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCVerticalButton.m; sourceTree = "<group>"; };
 		0416B1AF1D2A59E7000A609E /* ZCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTextField.h; sourceTree = "<group>"; };
 		0416B1B01D2A59E7000A609E /* ZCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTextField.m; sourceTree = "<group>"; };
+		0420D58A1D4F3D7700D49045 /* ZCTagTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTagTextField.h; sourceTree = "<group>"; };
+		0420D58B1D4F3D7700D49045 /* ZCTagTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTagTextField.m; sourceTree = "<group>"; };
 		042BD2221D26567F00E40558 /* ZCRecommendTagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZCRecommendTagsViewController.h; path = "../../新帖/Controller/ZCRecommendTagsViewController.h"; sourceTree = "<group>"; };
 		042BD2231D26567F00E40558 /* ZCRecommendTagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZCRecommendTagsViewController.m; path = "../../新帖/Controller/ZCRecommendTagsViewController.m"; sourceTree = "<group>"; };
 		042BD2251D2657B500E40558 /* ZCRecommendTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZCRecommendTagCell.h; path = "../../新帖/View/ZCRecommendTagCell.h"; sourceTree = "<group>"; };
@@ -297,6 +300,8 @@
 				0435CFD11D4B35A20009754A /* ZCAddtagToobar.xib */,
 				0435CFCE1D4B02150009754A /* ZCTagButton.h */,
 				0435CFCF1D4B02150009754A /* ZCTagButton.m */,
+				0420D58A1D4F3D7700D49045 /* ZCTagTextField.h */,
+				0420D58B1D4F3D7700D49045 /* ZCTagTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -722,6 +727,7 @@
 				TargetAttributes = {
 					045265B01D20F95100289DDA = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 7MLS7KJ5ZG;
 					};
 					045265C91D20F95200289DDA = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -866,6 +872,7 @@
 				0402C7921D23B61D00785417 /* ZCRecommendUser.m in Sources */,
 				045962561D45F5BB00EF5459 /* ZCMeFootView.m in Sources */,
 				045962471D45CA9900EF5459 /* UIImage+ZCExtension.m in Sources */,
+				0420D58C1D4F3D7700D49045 /* ZCTagTextField.m in Sources */,
 				047FB2871D3E08F300B78870 /* ZCCommentViewController.m in Sources */,
 				0402C78F1D23B60E00785417 /* ZCRecommendCategory.m in Sources */,
 				044FDBB11D40A97A000E718A /* ZCTopicWindow.m in Sources */,
@@ -978,6 +985,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "c974647e-80f0-4aef-a693-799720bf29f1";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1016,6 +1024,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "c974647e-80f0-4aef-a693-799720bf29f1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1027,11 +1036,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "bsbdj/Classes/其他/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SH.bsbdj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c974647e-80f0-4aef-a693-799720bf29f1";
 			};
 			name = Debug;
 		};
@@ -1041,11 +1053,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "bsbdj/Classes/其他/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SH.bsbdj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c974647e-80f0-4aef-a693-799720bf29f1";
 			};
 			name = Release;
 		};

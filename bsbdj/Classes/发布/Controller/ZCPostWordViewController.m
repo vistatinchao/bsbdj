@@ -72,6 +72,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self.view endEditing:YES];
     [self.textView becomeFirstResponder];
 }
 - (void)textViewDidChange:(UITextView *)textView

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^tagsBlock)(NSArray *tags);
 @interface ZCAddTagViewController : UIViewController
+/**获取tags的block*/
+@property (nonatomic,copy) tagsBlock tagsBlock;
 
+/**所有的标签*/
+@property (nonatomic,strong) NSArray *tags;
 @end

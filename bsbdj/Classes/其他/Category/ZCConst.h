@@ -37,3 +37,4 @@ UIKIT_EXTERN NSString *const ZCSelectedControllerKey;
 
 /** 标签-间距 */
 UIKIT_EXTERN CGFloat const ZCTagMargin;
+UIKIT_EXTERN CGFloat const ZCTagH;
